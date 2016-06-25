@@ -30,8 +30,48 @@
     <script src="app.js"></script>
   </head>
 
-  <body ng-controller="MainController">
-    <h1>Spache: The Finel Fronter</h1>
+  <body ng-controller="MainController" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+  <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="../index.html">
+                    <i class="fa fa-play-circle"></i>   Home
+                </a>
+            </div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="../about.html">Get me out of here</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>  
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Space</h1>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
     Order Method: {{TrueOrder}}
     <select ng-model = "OrderMethod">
       <option value = "Default"> Default </option>
@@ -40,12 +80,8 @@
     </select>
     
     <input type="checkbox" ng-model = "HideProd"> Hide Producer
-    <!--<div>
-      {{ base[0]}}
-      {{ base[0].Race }}
-      {{ 843 / 42 }}
-    </div>-->
-    <table>
+    
+    <table class = "table">
       <thead>
         <tr>
           <th ng-hide = HideProd> Producer </th>
@@ -67,6 +103,13 @@
         </tr>
       </tbody>
     </table>
+
+  <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="../js/jquery.easing.min.js"></script>  
   </body>
 
 </html>
