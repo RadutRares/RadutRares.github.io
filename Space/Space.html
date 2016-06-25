@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app = "Space">
+
+  <head>
+    <script data-require="angular.js@1.5.6" data-semver="1.5.6" src="https://code.angularjs.org/1.5.6/angular.min.js"></script>
+    <script data-require="angular.js@1.5.6" data-semver="1.5.6" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.js"></script>
+    <script data-require="angular.js@1.5.6" data-semver="1.5.6" src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script data-require="angular.js@1.5.6" data-semver="1.5.6" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link href="style.css" rel="stylesheet" />
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js" data-semver="1.2.1" data-require="angularjs@1.2.1"></script>-->
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="MainController">
+    <h1>Spache: The Finel Fronter</h1>
+    Order Method: {{TrueOrder}}
+    <select ng-model = "OrderMethod">
+      <option value = "Default"> Default </option>
+      <option value = "Name"> Alpha</option>
+      <option value = "Type"> Type </option>
+    </select>
+    
+    <input type="checkbox" ng-model = "HideProd"> Hide Producer
+    <!--<div>
+      {{ base[0]}}
+      {{ base[0].Race }}
+      {{ 843 / 42 }}
+    </div>-->
+    <table>
+      <thead>
+        <tr>
+          <th ng-hide = HideProd> Producer </th>
+          <th> Weapon Name </th>
+          <th> Type </th>
+          <th> Damage </th>
+          <th> Firing Modes </th>
+          <th> Special</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat = "bas in base | orderBy:OrderMethod">
+          <td ng-hide = HideProd>{{bas.Producer}}</td>
+          <td>{{bas.Name}}</td>
+          <td>{{bas.Type}}</td>
+          <td>{{bas.Damage}}</td>
+          <td>{{bas["Firing Modes"]}}</td>
+          <td>{{bas.Special}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+
+</html>
