@@ -8,6 +8,7 @@ var MainController = function ($scope, $http){
     $scope.base = data;
   });
   $scope.HideProd = false;
+  $scope.HideRace = true;
   $scope.OrderMethod = "Default";
 };
 

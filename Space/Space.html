@@ -17,7 +17,6 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="../css/grayscale.css" rel="stylesheet">
 
@@ -26,11 +25,19 @@
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
     <!--Angular Script-->
     <script src="app.js"></script>
   </head>
 
-  <body ng-controller="MainController" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <body ng-controller="MainController" id="page-top" data-spy="scroll"
+  data-target=".navbar-fixed-top">
 
   <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -63,43 +70,54 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Space</h1>
-                        <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    Order Method: {{TrueOrder}}
-    <select ng-model = "OrderMethod">
-      <option value = "Default"> Default </option>
-      <option value = "Name"> Alpha</option>
-      <option value = "Type"> Type </option>
-    </select>
+    <div class = "container">
+      <div class = "col-md-4 col-md-offset-2">
+        Order Method: {{TrueOrder}}
+        <select ng-model = "OrderMethod">
+          <option value = "Default"> Default </option>
+          <option value = "Name"> Alpha</option>
+          <option value = "Type"> Type </option>
+        </select>
+      </div>
     
-    <input type="checkbox" ng-model = "HideProd"> Hide Producer
-    
+      <div class = "col-md-6">
+
+        <input type="checkbox" ng-model = "HideProd"> Hide Producer
+        <input type="checkbox" ng-model = "HideRace"> Hide Race
+
+      </div>
+    </div>
+
     <table class = "table">
       <thead>
         <tr>
+          <th ng-hide = HideRace> Race </th>
           <th ng-hide = HideProd> Producer </th>
           <th> Weapon Name </th>
           <th> Type </th>
           <th> Damage </th>
+          <th> AP </th>
           <th> Firing Modes </th>
           <th> Special</th>
+
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat = "bas in base | orderBy:OrderMethod">
-          <td ng-hide = HideProd>{{bas.Producer}}</td>
-          <td>{{bas.Name}}</td>
-          <td>{{bas.Type}}</td>
-          <td>{{bas.Damage}}</td>
-          <td>{{bas["Firing Modes"]}}</td>
-          <td>{{bas.Special}}</td>
+        <tr ng-repeat = "weapon in base | orderBy:OrderMethod">
+          <td ng-hide = HideRace>{{weapon.Race}}</td>
+          <td ng-hide = HideProd>{{weapon.Producer}}</td>
+          <td>{{weapon.Name}}</td>
+          <td>{{weapon.Type}}</td>
+          <td>{{weapon.Damage}}</td>
+          <td>{{weapon.AP}}</td>
+          <td>{{weapon["Firing Modes"]}}</td>
+          <td>{{weapon.Special}}</td>
         </tr>
       </tbody>
     </table>
@@ -110,6 +128,8 @@
     <script src="../js/bootstrap.min.js"></script>
     <!-- Plugin JavaScript -->
     <script src="../js/jquery.easing.min.js"></script>  
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/grayscale.js"></script>
   </body>
 
 </html>
