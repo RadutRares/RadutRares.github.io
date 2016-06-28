@@ -90,7 +90,9 @@
 
         <input type="checkbox" ng-model = "HideProd"> Hide Producer
         <input type="checkbox" ng-model = "HideRace"> Hide Race
-
+        <input type="checkbox" ng-model = "HideSpec"> Hide Special
+        <input type="checkbox" ng-model = "HideProf"> Hide Proficiency
+        <input type="checkbox" ng-model = "HideTech"> Hide Tech
       </div>
     </div>
 
@@ -103,9 +105,15 @@
           <th> Type </th>
           <th> Damage </th>
           <th> AP </th>
+          <th> Range </th>
+          <th> Max Range </th>
+          <th> Crit </th>
+          <th> Rely </th>
+          <th> Clip </th>
           <th> Firing Modes </th>
-          <th> Special</th>
-
+          <th ng-hide = HideSpec> Special</th>
+          <th ng-hide = HideProf> Proficiency</th>
+          <th ng-hide = HideTech> Tech Level </th>
         </tr>
       </thead>
       <tbody>
@@ -116,8 +124,15 @@
           <td>{{weapon.Type}}</td>
           <td>{{weapon.Damage}}</td>
           <td>{{weapon.AP}}</td>
+          <td>{{weapon["Ini Range"]}}</td>
+          <td>{{weapon["Max Range"]}}</td>
+          <td>{{weapon.Crit}}</td>
+          <td>{{weapon.Rely}}</td>
+          <td>{{weapon.Clip}}</td>
           <td>{{weapon["Firing Modes"]}}</td>
-          <td>{{weapon.Special}}</td>
+          <td ng-hide = HideProf>{{weapon.Proficiency}}</td>
+          <td ng-hide = HideSpec>{{weapon.Special}}</td>
+          <td ng-hide = HideTech>{{weapon.Tech}}</td>
         </tr>
       </tbody>
     </table>
