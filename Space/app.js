@@ -1,6 +1,4 @@
-// Code goes here
-
-var app = angular.module("Space",[])
+var app = angular.module("Space", []);
 
 var MainController = function ($scope, $http){
   $http.get('Weapons.json').success(function(data) {
@@ -12,4 +10,7 @@ var MainController = function ($scope, $http){
   $scope.OrderMethod = "Default";
 };
 
-app.controller("MainController", ["$scope", "$http", MainController]);
+app.controller("MainController", MainController);
+
+//app.controller("MainController", MainController);
+//app.controller("MainController", ["$scope", "$http", "$location", MainController]);

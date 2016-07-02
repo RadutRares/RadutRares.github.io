@@ -34,7 +34,7 @@
     <![endif]-->
 
     <!--Angular Script-->
-    <script src="app.js"></script>
+    <script src="ArmorGet.js"></script>
     <!-- jQuery -->
     <script src="../js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -45,7 +45,7 @@
     <script src="../js/grayscale.js"></script>
   </head>
 
-  <body ng-controller = "MainController" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <body ng-controller = "ArmorGet" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
   <!-- Navigation -->
   <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -62,7 +62,7 @@
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="Armor.html">Armor</a>
+                        <a href="Space.html">Weapons</a>
                     </li>
                     <li>
                         <a href="../about.html">Get me out of here</a>
@@ -103,7 +103,6 @@
           <input type="checkbox" ng-model = "HideProd"> Hide Producer
           <input type="checkbox" ng-model = "HideRace"> Hide Race
           <input type="checkbox" ng-model = "HideSpec"> Hide Special
-          <input type="checkbox" ng-model = "HideProf"> Hide Proficiency
           <input type="checkbox" ng-model = "HideTech"> Hide Tech
         </div>
       </div>
@@ -113,38 +112,26 @@
           <tr>
             <th ng-hide = HideRace> Race </th>
             <th ng-hide = HideProd> Producer </th>
-            <th> Weapon Name </th>
+            <th> Name </th>
             <th> Type </th>
-            <th> Damage </th>
-            <th> AP </th>
-            <th> Range </th>
-            <th> Max Range </th>
-            <th> Crit </th>
-            <th> Rely </th>
-            <th> Clip </th>
-            <th> Firing Modes </th>
+            <th> DR </th>
+            <th> Slots </th>
             <th ng-hide = HideSpec> Special</th>
-            <th ng-hide = HideProf> Proficiency</th>
             <th ng-hide = HideTech> Tech Level </th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat = "weapon in base | orderBy:OrderMethod">
-            <td ng-hide = HideRace>{{weapon.Race}}</td>
-            <td ng-hide = HideProd>{{weapon.Producer}}</td>
-            <td>{{weapon.Name}}</td>
-            <td>{{weapon.Type}}</td>
-            <td>{{weapon.Damage}}</td>
-            <td>{{weapon.AP}}</td>
-            <td>{{weapon["Ini Range"]}}</td>
-            <td>{{weapon["Max Range"]}}</td>
-            <td>{{weapon.Crit}}</td>
-            <td>{{weapon.Rely}}</td>
-            <td>{{weapon.Clip}}</td>
-            <td>{{weapon["Firing Modes"]}}</td>
-            <td ng-hide = HideProf>{{weapon.Proficiency}}</td>
-            <td ng-hide = HideSpec>{{weapon.Special}}</td>
-            <td ng-hide = HideTech>{{weapon.Tech}}</td>
+          <tr ng-repeat = "armor in armors | orderBy:OrderMethod">
+            <td ng-hide = HideRace>{{armor.Race}}</td>
+            <td ng-hide = HideProd>{{armor.Producer}}</td>
+            <td>{{armor.Name}}</td>
+            <td>{{armor.Type}}</td>
+            <td>Kn {{armor.kn}} | Hkn {{armor.Hkn}} | Exp {{armor.Exp}} |
+            Acid {{armor.Acid}} | Fire {{armor.Fire}} | Plasma {{armor.Pla}} | 
+            Energy {{armor.En}} | Slash {{armor.Sl}} | Pierce {{armor.Pi}} | Blunt {{armor.Bl}}</td>
+            <td> {{armor.Slots}} </td>
+            <td ng-hide = HideSpec>{{armor.Special}}</td>
+            <td ng-hide = HideTech>{{armor.Tech}}</td>
           </tr>
         </tbody>
       </table>
