@@ -116,6 +116,7 @@
             <th> Type </th>
             <th> DR </th>
             <th> Slots </th>
+            <th> Speed Mod </th>
             <th ng-hide = HideSpec> Special</th>
             <th ng-hide = HideTech> Tech Level </th>
           </tr>
@@ -127,9 +128,10 @@
             <td>{{armor.Name}}</td>
             <td>{{armor.Type}}</td>
             <td>Kn {{armor.kn}} | Hkn {{armor.Hkn}} | Exp {{armor.Exp}} |
-            Acid {{armor.Acid}} | Fire {{armor.Fire}} | Plasma {{armor.Pla}} | 
-            Energy {{armor.En}} | Slash {{armor.Sl}} | Pierce {{armor.Pi}} | Blunt {{armor.Bl}}</td>
+            A {{armor.Acid}} | F {{armor.Fire}} | Pla {{armor.Pla}} | 
+            En {{armor.En}} | Sl {{armor.Sl}} | Pi {{armor.Pi}} | Bl {{armor.Bl}}</td>
             <td> {{armor.Slots}} </td>
+            <td> {{armor["Speed Modifer"]}}
             <td ng-hide = HideSpec>{{armor.Special}}</td>
             <td ng-hide = HideTech>{{armor.Tech}}</td>
           </tr>
