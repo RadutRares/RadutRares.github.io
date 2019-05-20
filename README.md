@@ -1,2 +1,3 @@
-# RadutRares.github.io v1.0
-# Currently being fixed up
+# RadutRares.github.io v1.1
+
+This is my personal website
